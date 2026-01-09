@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Happy Birthday 🎂</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Pacifico&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #ffe29f, #ffa99f, #c9cfff);
+      color: #333;
+      text-align: center;
+    }
+
+    section {
+      padding: 80px 20px;
+    }
+
+    h1, h2 {
+      font-family: 'Pacifico', cursive;
+    }
+
+    .btn {
+      padding: 12px 28px;
+      border-radius: 30px;
+      border: none;
+      font-size: 1rem;
+      cursor: pointer;
+      background: #ff6f91;
+      color: #fff;
+      transition: transform 0.2s ease;
+      margin-top: 20px;
+    }
+
+    .btn:hover {
+      transform: scale(1.05);
+    }
+
+    .card-box {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      max-width: 900px;
+      margin: 40px auto 0;
+    }
+
+    .card {
+      background: rgba(255,255,255,0.75);
+      padding: 25px;
+      border-radius: 20px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    }
+
+    footer {
+      padding: 40px;
+      background: rgba(255,255,255,0.4);
+      font-size: 0.9rem;
+    }
+
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+<!-- ================================= -->
+<!-- 💛 EDIT ZONE — PERSONAL DETAILS -->
+<!-- ================================= -->
+
+<script>
+  const girlfriendName = "Palak";
+  const nickname = "Nikki,Baby,Babudi";
+  const birthdayDate = "16 January 2001";
+
+  const roastLines = [
+    "Takes forever to decide what to eat 🍕",
+    "Says she’s sleepy but never sleeps 😴",
+    "Steals food and denies it 😌"
+  ];
+
+  const compliments = [
+    "Still the cutest human alive 😍",
+    "A walking green flag 💚",
+    "Aging like fine wine 🍷",
+    "Main character energy only 👑"
+  ];
+</script>
+
+<!-- ================================= -->
+<!-- 🎉 HERO SECTION -->
+<!-- ================================= -->
+
+<section>
+  <h1>Happy Birthday, <span id="name"></span> 🎂</h1>
+  <p>This website exists because a normal birthday wish was too boring.</p>
+</section>
+
+<!-- ================================= -->
+<!-- 😄 ABOUT HER (FUNNY) -->
+<!-- ================================= -->
+
+<section>
+  <h2>About You (100% Accurate)</h2>
+  <p>
+    Cute ✔️  
+    Funny ✔️  
+    Slightly dramatic ✔️  
+    Completely irresistible ✔️
+  </p>
+</section>
+
+<!-- ================================= -->
+<!-- 🎁 WHY YOU DESERVE CAKE -->
+<!-- ================================= -->
+
+<section>
+  <h2>Why You Deserve Cake</h2>
+  <div class="card-box">
+    <div class="card">You make life more fun ✨</div>
+    <div class="card">You survived another year 💪</div>
+    <div class="card">You tolerate me (barely) 😌</div>
+  </div>
+</section>
+
+<!-- ================================= -->
+<!-- 🎤 ROAST TOGGLE -->
+<!-- ================================= -->
+
+<section>
+  <h2>Birthday Roast 🎤</h2>
+  <button class="btn" onclick="toggleRoast()">Click to be roasted</button>
+  <div id="roastBox" class="hidden"></div>
+</section>
+
+<!-- ================================= -->
+<!-- ✨ COMPLIMENT GENERATOR -->
+<!-- ================================= -->
+
+<section>
+  <h2>Compliment Generator ✨</h2>
+  <button class="btn" onclick="newCompliment()">Click for Compliment</button>
+  <p id="complimentText" style="font-weight:600;margin-top:20px;"></p>
+</section>
+<!-- ================================= -->
+<!-- 🧩 FUN QUIZ SECTION -->
+<!-- ================================= -->
+
+<section>
+  <h2>How Well Do You Know Yourself? 😏</h2>
+  <p>(Be honest. I’m watching.)</p>
+
+  <div class="card-box">
+    <div class="card">
+      <p><strong>1️⃣ What takes the longest?</strong></p>
+      <button class="btn" onclick="answer(true)">Deciding what to eat</button><br><br>
+      <button class="btn" onclick="answer(false)">Getting ready fast</button>
+    </div>
+
+    <div class="card">
+      <p><strong>2️⃣ Your true personality?</strong></p>
+      <button class="btn" onclick="answer(true)">Cute but chaotic</button><br><br>
+      <button class="btn" onclick="answer(false)">Calm and organised</button>
+    </div>
+
+    <div class="card">
+      <p><strong>3️⃣ Favourite time to sleep?</strong></p>
+      <button class="btn" onclick="answer(false)">Early night</button><br><br>
+      <button class="btn" onclick="answer(true)">Anytime after 12 AM</button>
+    </div>
+  </div>
+
+  <p id="quizResult" style="margin-top:30px;font-weight:600;"></p>
+</section>
+<script>
+  let score = 0;
+
+  function answer(correct) {
+    if (correct) {
+      score++;
+      document.getElementById("quizResult").innerText =
+        "Correct 😂 Score: " + score + "/3";
+    } else {
+      document.getElementById("quizResult").innerText =
+        "Lies detected 🤨 Score: " + score + "/3";
+    }
+
+    if (score === 3) {
+      document.getElementById("quizResult").innerText =
+        "Perfect score 🎉 You know yourself very well (obviously).";
+    }
+  }
+</script>
+
+<footer>
+  Made with love, sarcasm, and zero coding skills ❤️  
+  <br>
+  Birthday: <span id="bday"></span>
+</footer>
+
+<script>
+  document.getElementById("name").innerText = girlfriendName;
+  document.getElementById("bday").innerText = birthdayDate;
+
+  function toggleRoast() {
+    const box = document.getElementById("roastBox");
+    if (box.classList.contains("hidden")) {
+      box.innerHTML = roastLines.map(r => "• " + r).join("<br>");
+      box.classList.remove("hidden");
+    } else {
+      box.classList.add("hidden");
+    }
+  }
+
+  function newCompliment() {
+    const random = Math.floor(Math.random() * compliments.length);
+    document.getElementById("complimentText").innerText = compliments[random];
+  }
+</script>
+
+</body>
+</html>
